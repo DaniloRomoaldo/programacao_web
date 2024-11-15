@@ -1,4 +1,4 @@
-import { getAlunos, getOneAluno, setAluno } from "../db";
+import { getAlunos, getOneAluno, setAluno } from "../db.js";
 
 
 export function create(newAluno){

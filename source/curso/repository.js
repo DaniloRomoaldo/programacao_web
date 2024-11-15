@@ -1,4 +1,4 @@
-import { getCursos, getOneCurso, setCurso } from "../db";
+import { getCursos, getOneCurso, setCurso } from "../db.js";
 
 
 export function create(Newcurso){
