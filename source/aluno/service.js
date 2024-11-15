@@ -7,10 +7,16 @@ export const criarAluno = (newAluno) => {
     const cursos = cursoRepository.findAll();
     const curso_aluno = cursos.find(curso => curso.id == newAluno.id_curso);
 
+
+/*
+
     // verificação se o curso existe
     if (!curso_aluno){
         return "curso não encontrado"
     }
+
+
+*/
 
     alunoRepository.create(newAluno);
     return newAluno;

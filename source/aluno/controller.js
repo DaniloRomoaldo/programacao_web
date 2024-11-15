@@ -1,5 +1,6 @@
 import * as alunoService from "./service.js"
 
+// função para a rota POST
 export const criarAluno = (req, res) => {
     
     try {
@@ -10,7 +11,7 @@ export const criarAluno = (req, res) => {
     }
 }
 
-
+// função para a rota GET
 export const listarAlunos = (req, res) => {
 
     try {
@@ -23,7 +24,7 @@ export const listarAlunos = (req, res) => {
 }
 
 
-
+// função para a rota GET/ com id
 export const visulaizarAluno = (req, res) => {
 
     try {
@@ -35,7 +36,7 @@ export const visulaizarAluno = (req, res) => {
 
 }
 
-
+// função para a rota PUT
 export const atualizarAluno = (req, res) => {
 
     try {
@@ -46,7 +47,7 @@ export const atualizarAluno = (req, res) => {
     }
 }
 
-
+// função para a rota PATCH
 export const atualizarAlunoParcial = (req, res) => {
 
     try {
@@ -57,7 +58,7 @@ export const atualizarAlunoParcial = (req, res) => {
     }
 }
 
-
+// função para a rota DELETE
 export const deleteAluno = (req, res) => {
 
     try {
