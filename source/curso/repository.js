@@ -7,7 +7,7 @@ export function create(Newcurso){
 
 
 export const findAll = () => {
-    return getCursos;
+    return getCursos();
 }
 
 export const findOne = (id) => {

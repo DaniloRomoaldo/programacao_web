@@ -1,11 +1,9 @@
 const alunos = [{
-    "id": 0,
     "nome": "Danilo",
     "matricula": "123",
     "cursos": "artes"
   },
   {
-    "id": 1,
     "nome": "Maria",
     "matricula": "456",
     "cursos": "Matematica"
@@ -31,6 +29,9 @@ export const getOneAluno = (id) => alunos[id];
 export const getCursos = () => cursos;
 export const setCurso = (curso) => cursos.push(curso);
 export const getOneCurso = (id) => cursos[id];
+
+
+
 
 
 /*

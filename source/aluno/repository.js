@@ -6,7 +6,7 @@ export function create(newAluno){
 }
 
 export const findAll = () => {
-    return getAlunos;
+    return getAlunos();
 }
 
 export const findOne = (id) => {

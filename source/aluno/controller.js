@@ -16,7 +16,8 @@ export const listarAlunos = (req, res) => {
 
     try {
         const alunos = alunoService.listarAlunos();
-        res.status(201).json(alunos);
+        res.status(200).json(alunos);
+        
     } catch (error) {
         res.status(400).json({"message": "Houve um erro no processamento da requisição, tente mais tarde."});
     }
@@ -29,7 +30,7 @@ export const visulaizarAluno = (req, res) => {
 
     try {
         const aluno = alunoService.visulaizarAluno(parseInt(req.params.id));
-        res.status(201).json(aluno);
+        res.status(200).json(aluno);
     } catch (error) {
         res.status(404).json({"message": "Aluno Não Encontrado"});
     }
