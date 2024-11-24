@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { database } from "../knex/knexfile.js";
 
-
+// conexão com kenx feita
 export const create = async (newAluno) => {
     await database('aluno').insert({ // toda escrita é um método assincrono que necessita esperar a resposta
         nome: newAluno.nome,
