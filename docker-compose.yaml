@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  postgresDB:
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: "prog_web"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_USER: "admin"
+
+    ports:
+      - '15432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

@@ -1,6 +1,9 @@
+// @ts-nocheck
 import express from 'express';
 import * as alunoController from './aluno/controller.js';
 import * as cursoController from './curso/controller.js';
+
+
 
 const app = express();
 const port = 3000;

@@ -1,10 +1,10 @@
 import * as alunoService from "./service.js"
 
 // função para a rota POST
-export const criarAluno = (req, res) => {
+export const criarAluno = async (req, res) => {
     
     try {
-        const aluno = alunoService.criarAluno(req.body);
+        const aluno = await alunoService.criarAluno(req.body);
         res.status(201).json(aluno)
     } catch (error) {
         res.status(400).json({"message": "Houve um erro no processamento de requisição, tente mais tarde"})
@@ -12,13 +12,14 @@ export const criarAluno = (req, res) => {
 }
 
 // função para a rota GET
-export const listarAlunos = (req, res) => {
+export const listarAlunos = async (req, res) => {
 
     try {
-        const alunos = alunoService.listarAlunos();
+        const alunos = await alunoService.listarAlunos();
         res.status(200).json(alunos);
         
     } catch (error) {
+        console.log(error);
         res.status(400).json({"message": "Houve um erro no processamento da requisição, tente mais tarde."});
     }
 
@@ -26,10 +27,10 @@ export const listarAlunos = (req, res) => {
 
 
 // função para a rota GET/ com id
-export const visulaizarAluno = (req, res) => {
+export const visulaizarAluno = async (req, res) => {
 
     try {
-        const aluno = alunoService.visulaizarAluno(parseInt(req.params.id));
+        const aluno = await alunoService.visulaizarAluno(req.params.id);
         res.status(200).json(aluno);
     } catch (error) {
         res.status(404).json({"message": "Aluno Não Encontrado"});
@@ -38,10 +39,10 @@ export const visulaizarAluno = (req, res) => {
 }
 
 // função para a rota PUT
-export const atualizarAluno = (req, res) => {
+export const atualizarAluno = async (req, res) => {
 
     try {
-        alunoService.atualizarAluno(parseInt(req.params.id), req.body);
+        await alunoService.atualizarAluno(req.params.id, req.body);
         res.status(204).send();
     } catch (error) {
         res.status(400).json({"message": "Erro ao processar a requisição."});
@@ -49,10 +50,10 @@ export const atualizarAluno = (req, res) => {
 }
 
 // função para a rota PATCH
-export const atualizarAlunoParcial = (req, res) => {
+export const atualizarAlunoParcial = async (req, res) => {
 
     try {
-        alunoService.atualizarAlunoParcial(parseInt(req.params.id), req.body);
+        await alunoService.atualizarAlunoParcial(req.params.id, req.body);
         res.status(204).send();
     } catch (error) {
         res.status(400).json({"message": "Erro ao processar a requisição."});
@@ -60,10 +61,10 @@ export const atualizarAlunoParcial = (req, res) => {
 }
 
 // função para a rota DELETE
-export const deleteAluno = (req, res) => {
+export const deleteAluno = async (req, res) => {
 
     try {
-        alunoService.deleteAluno(parseInt(req.params.id));
+        await alunoService.deleteAluno(req.params.id);
         res.status(204).send();
     } catch (error) {
         res.status(400).json({"message": "Erro ao processar a requisição, tente mais tarde."});

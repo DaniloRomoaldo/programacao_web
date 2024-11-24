@@ -3,42 +3,30 @@ import * as alunoRepository from "./repository.js";
 
 
 // criar aluno
-export const criarAluno = (newAluno) => {
+export const criarAluno = async (newAluno) => {
     
-/*
-
-// está dando algum erro nessa validação do curso
-    const cursos = cursoRepository.findAll();
-    const curso_aluno = cursos.find(curso => curso.id == newAluno.id_curso);
-
-
-    // verificação se o curso existe
-    if (!curso_aluno){
-        return "curso não encontrado"
-    }
-*/
-
-    alunoRepository.create(newAluno);
+    await alunoRepository.create(newAluno);
     return newAluno;
 }
 
 // lista todos os alunos
-export const listarAlunos = () => {
+export const listarAlunos = async () => {
     return alunoRepository.findAll();
 }
 
 // visualizar um aluno
-export const visulaizarAluno = (id) => {
+export const visulaizarAluno = async (id) => {
     return alunoRepository.findOne(id);
 }
 
 // atualizar aluno
-export const atualizarAluno = (id, newAluno) => {
-    alunoRepository.update(id, newAluno);
+export const atualizarAluno = async (id, newAluno) => {
+    await alunoRepository.update(id, newAluno);
 
 }
 
-export const atualizarAlunoParcial = (id, newAluno) => {
+// a atualização parcial faz copia por referêcnia ou eu vou precisar achamar o método de escrita novamente?
+export const atualizarAlunoParcial = async (id, newAluno) => {
     const {nome, matricula, cursos} = newAluno;
     let aluno = alunoRepository.findOne(id);
 
@@ -49,6 +37,7 @@ export const atualizarAlunoParcial = (id, newAluno) => {
 }
 
 
-export const deleteAluno = (id) => {
-    alunoRepository.destroy(id);
+export const deleteAluno = async (id) => {
+   await alunoRepository.destroy(id);
 }
+
