@@ -27,12 +27,14 @@ export const atualizarAluno = async (id, newAluno) => {
 
 // a atualização parcial faz copia por referêcnia ou eu vou precisar achamar o método de escrita novamente?
 export const atualizarAlunoParcial = async (id, newAluno) => {
-    const {nome, matricula, cursos} = newAluno;
+    const {nome, matricula, nome_curso} = newAluno;
     let aluno = alunoRepository.findOne(id);
 
     aluno.nome = nome ? nome : aluno.nome;
     aluno.matricula = matricula ? matricula : aluno.matricula;
-    aluno.cursos = cursos ? cursos : aluno.cursos;
+    aluno.nome_curso = nome_curso ? nome_curso : aluno.nome_curso;
+
+    await alunoRepository.update(id,aluno);
 
 }
 

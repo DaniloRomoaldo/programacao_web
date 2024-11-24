@@ -25,7 +25,7 @@ export const update = async (id, newAluno) => {
     await database('aluno').where({id: id}).update({
         nome: newAluno.nome,
         matricula: newAluno.matricula,
-        id_curso: newAluno.id_curso
+        nome_curso: newAluno.nome_curso
     })
 }
 
